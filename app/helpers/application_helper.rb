@@ -10,4 +10,9 @@ module ApplicationHelper
   end
 
 
+  def curr_session_path
+    session_path(session[:user_id])
+  end
+
+
 end
