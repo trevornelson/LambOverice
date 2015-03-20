@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Required for deployment with Bootstrap - https://zirosas.wordpress.com/2013/06/02/twitter-bootstrap-for-rails/
+  config.assets.compile = true
 end
