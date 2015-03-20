@@ -1,11 +1,20 @@
-<%= form_for(:session, url: sessions_path) do |f| %>
-  <%= f.text_field :username, placeholder: "username" %>
-  <%= f.password_field :password, placeholder: "password" %>
+<div id="login">
 
-  <%= f.submit "Sign In" %>
-<% end %>
+  <h1>Login</h1>
 
-<% if session[:message] %>
-  <%= session[:message] %>
-  <% session.delete(:message) %>
-<% end %>
+  <%= form_for(:session, url: sessions_path) do |f| %>
+
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.submit "Sign In" %>
+  <% end %>
+
+  <% if session[:message] %>
+    <%= session[:message] %>
+    <% session.delete(:message) %>
+  <% end %>
+</div>
