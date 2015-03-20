@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.includes(:user, :category, comments: :user, answers: [{comments: :user}, :user]).find(params[:id])
+    @answer = Answer.new
   end
 
   def create

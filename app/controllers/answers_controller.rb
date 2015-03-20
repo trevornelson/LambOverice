@@ -1,18 +1,14 @@
 class AnswersController < ApplicationController
 
-  def new
-    @question = Question.find(params[:question_id])
-    @answer = Answer.new
-  end
-
   def create
     question = Question.find(params[:question_id])
     answer = question.answers.new(content: params[:answer][:content], user_id: session[:user_id])
     if answer.save
+      # Ajax
       redirect_to question
     else
-      # Add ajax to display the error message getting back from validations
-      redirect_to new_question_answer_path(question.id)
+      #Ajax
+      redirect_to question
     end
   end
 
