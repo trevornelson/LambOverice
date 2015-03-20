@@ -4,4 +4,10 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :comments, as: :commentable
   belongs_to :category
+
+  def vote_count
+    votes = self.votes
+    return 1 if votes.count == 0
+    votes.where(direction: 'Up').count - votes.where(direction: 'Down').count
+  end
 end
