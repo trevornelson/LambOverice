@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :answers, only: [:new, :create]
   end
 
+  resources :categories, only: [:index, :show]
+
 end
