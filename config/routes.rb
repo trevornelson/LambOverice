@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   resources :users
 
 
-  resources :answers, except: [:new, :create, :show, :index]
+  resources :answers, only: [:edit, :destroy] do
+    resources :comments, only: [:create]
+  end
 
   resources :questions do
     resources :answers, only: [:new, :create]
+    resources :comments, only: [:create]
   end
 
   resources :categories, only: [:index, :show]
