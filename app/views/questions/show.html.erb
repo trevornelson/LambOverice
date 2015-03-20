@@ -14,4 +14,7 @@
   <%= render @question.answers %>
 </ul>
 
+<div class="answer_form">
+  <%= render partial: 'answers/new', locals: {answer: @answer, question: @question} %>
+</div>
 
