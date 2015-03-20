@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'sessions#new'
+  root 'questions#index'
   resources :sessions
   resources :users
 
