@@ -12,24 +12,27 @@ describe CommentsController do
 
 
     describe 'Commenting on a question' do
-
-      it 'creates a comment to a specific question' do
+      before(:each) do
         user
         question
         session[:user_id] = user.id
-        post :create, {:question_id => question.id, comment: {content: "I feel like this answer is accurate"} }
-        expect(response.body).to eq("I return a JSON object that says I saved myself")
+        request.env["HTTP_REFERER"] = "question"
       end
 
+      it 'creates a comment to a specific question' do
+        post :create, {:question_id => question.id, comment: {content: "I feel like this answer is accurate"} }
+        expect(response).to redirect_to("question")
+      end
     end
 
     describe 'Commenting on an answer' do
 
       it 'creates a comment to a specific answer' do
+        request.env["HTTP_REFERER"] = "question"
         answer
         session[:user_id] = user.id
         post :create, {:answer_id => answer.id, comment: {content: "I feel like this answer is accurate"} }
-        expect(response.body).to eq("I return a JSON object that says I saved myself")
+        expect(response).to redirect_to("question")
       end
 
     end

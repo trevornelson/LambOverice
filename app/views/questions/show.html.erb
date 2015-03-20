@@ -8,6 +8,8 @@
   <div class="panel-body">
     <%= @question.content %>
   </div>
+  <%= render @question.comments%>
+  <%= render partial: 'comments/new', locals: {commentable: @question, comment: Comment.new}%>
 </div>
 
 <ul class="list-group">
