@@ -14,6 +14,13 @@
 
       <%= yield %>
 
+<% if session[:user_id] %>
+  <div id="banner">
+    <%= link_to "Logout", curr_session_path, method: :delete %>
+  </div>
+<% end %>
+
+
     </div>
   </div>
 
