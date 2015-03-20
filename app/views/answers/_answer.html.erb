@@ -1,4 +1,7 @@
 <li class='list-group-item answer-detail'>
   <p><%= answer.content %></p>
   <strong><%= link_to answer.user.username, answer.user %></strong>
+  <ul class='list-group'>
+    <%= render answer.comments %>
+  </ul>
 </li>
