@@ -4,4 +4,5 @@
   <ul class='list-group'>
     <%= render answer.comments %>
   </ul>
+  <%= render partial: 'comments/new', locals: {commentable: answer, comment: Comment.new}%>
 </li>
