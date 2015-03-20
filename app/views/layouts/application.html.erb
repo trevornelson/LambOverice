@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<% if session[:user_id] %>
+  <div id="banner">
+    <%= link_to "Logout", session_path, method: :delete %>
+  </div>
+<% end %>
+
 <%= yield %>
 
 </body>
