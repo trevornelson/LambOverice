@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'sessions#new'
+  root 'questions#index'
   resources :sessions
   resources :users
 
@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers, only: [:new, :create]
   end
+
+  resources :categories, only: [:index, :show]
 
 end
