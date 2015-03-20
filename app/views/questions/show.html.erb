@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1><%= @question.title %></h1>
+    <%= link_to @question.category.name, @question.category %>
+    <h5>by: <%= link_to @question.user.username, @question.user %></h5>
+  </div>
+
+  <div class="panel-body">
+    <%= @question.content %>
+  </div>
+</div>
+
+<ul class="list-group">
+  <%= render @question.answers %>
+</ul>
+
+
