@@ -7,7 +7,6 @@ class Question < ActiveRecord::Base
 
   def vote_count
     votes = self.votes
-    return 1 if votes.count == 0
-    votes.where(direction: 'Up').count - votes.where(direction: 'Down').count
+    1 + (votes.where(direction: 'Up').count - votes.where(direction: 'Down').count)
   end
 end
