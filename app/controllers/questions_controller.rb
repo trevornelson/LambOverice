@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find_with_included_relations(params[:id])
+    @question = Question.with_all_relations(params[:id])
     @answer = Answer.new
   end
 
