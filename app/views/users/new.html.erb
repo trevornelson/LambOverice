@@ -1,12 +1,24 @@
-<%= form_for(@user) do |f| %>
-  <%= f.text_field :username, placeholder: "username" %>
-  <%= f.text_field :email, placeholder: "email" %>
-  <%= f.text_field :password, placeholder: "password" %>
+<div id="signup">
 
-  <%= f.submit "Create Account" %>
-<% end %>
+  <h1>Signup</h1>
 
-<% if session[:message] %>
-  <%= session[:message] %>
-  <% session.delete(:message) %>
-<% end %>
+  <%= form_for(@user) do |f| %>
+
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+
+    <%= f.submit "Create Account" %>
+  <% end %>
+
+  <% if session[:message] %>
+    <%= session[:message] %>
+    <% session.delete(:message) %>
+  <% end %>
+
+</div>

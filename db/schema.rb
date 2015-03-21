@@ -42,9 +42,10 @@ ActiveRecord::Schema.define(version: 20150319211234) do
   add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "user_id",     null: false
-    t.string   "title",       null: false
+    t.integer  "user_id",       null: false
+    t.string   "title",         null: false
     t.text     "content"
+    t.string   "category_name"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
