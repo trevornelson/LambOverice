@@ -16,12 +16,13 @@ class Question < ActiveRecord::Base
                                                                       {:comments => :user}]
                                                           ).find(question_id) }
 
+
   def incr_vote_count
-    self.vote_count += self.vote_count
+    self.increment!(:vote_count)
   end
 
   def decr_vote_count
-    self.vote_count -= self.vote_count
+    self.decrement!(:vote_count)
   end
 >>>>>>> Created question#with_all_relations scope and refactored for readability
 end

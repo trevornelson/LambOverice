@@ -7,11 +7,11 @@ class Answer < ActiveRecord::Base
   validates :content, length: {minimum: 10}
 
   def incr_vote_count
-    self.vote_count += self.vote_count
+    self.increment!(:vote_count)
   end
 
   def decr_vote_count
-    self.vote_count -= self.vote_count
+    self.decrement!(:vote_count)
   end
 
 end

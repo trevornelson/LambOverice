@@ -19,7 +19,7 @@
 </div>
 
 <ul class="list-group">
-  <%= render @question.answers %>
+  <%= render @question.answers.order(vote_count: :desc) %>
 </ul>
 
 <div class="answer_form">
