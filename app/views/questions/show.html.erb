@@ -1,5 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
+    <%= render 'votes/new' %>
     <h1><%= @question.title %></h1>
     <%= link_to @question.category.name, @question.category %>
     <h5>by: <%= link_to @question.user.username, @question.user %></h5>
