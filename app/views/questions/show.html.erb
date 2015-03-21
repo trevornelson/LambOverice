@@ -1,9 +1,14 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <%= render 'votes/new' %>
-    <h1><%= @question.title %></h1>
-    <%= link_to @question.category.name, @question.category %>
-    <h5>by: <%= link_to @question.user.username, @question.user %></h5>
+    <div class='row'>
+      <div class='col-md-1'>
+        <%= render partial: 'votes/new', locals: {vote_count: @question.vote_count, voteable_type: 'Question', voteable_id: @question.id} %>
+      </div>
+      <div class='col-md-11'>
+        <h1><%= @question.title %></h1>
+        <%= link_to @question.category.name, @question.category %>
+        <h5>by: <%= link_to @question.user.username, @question.user %></h5>
+      </div>
   </div>
 
   <div class="panel-body">
