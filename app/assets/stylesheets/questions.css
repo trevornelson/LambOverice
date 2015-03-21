@@ -3,3 +3,21 @@
   font-size: 2em;
   text-align: center;
 }
+
+.vote-count {
+  font-size: 1.3em;
+}
+
+.vote-buttons {
+  font-size: 1.2em;
+  color: #F4B350;
+}
+
+.question-vote-buttons .vote-count {
+  font-size: 2.5em;
+}
+
+.question-vote-buttons .vote-buttons {
+  font-size: 1.5em;
+  color: #F9690E;
+}
