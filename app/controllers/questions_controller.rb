@@ -2,12 +2,14 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.all
     if request.xhr?
-      render :json => {questions: @questions}
+
+      questions = Question.all.map{|ques| {id: ques.id, category: ques.category.name, title: ques.title, username: ques.user.username} }
+      render :json => {questions: questions}
     end
   end
 
   def show
-    @question = Question.includes(:user, :category, comments: :user, answers: [{comments: :user}, :user]).find(params[:id])
+    @question = Question.find_with_included_relations(params[:id])
     @answer = Answer.new
   end
 
@@ -28,6 +30,5 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:title, :content, :category_name, :category_id, :user_id)
   end
-
 
 end
