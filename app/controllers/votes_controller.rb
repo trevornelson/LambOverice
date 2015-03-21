@@ -5,9 +5,10 @@ class VotesController < ApplicationController
     vote[:user_id] = 1
 
     if vote.save
-      render json: {vote_count: vote.voteable.vote_count}
+      render json: {vote_count: vote.voteable.vote_count, status: 200}
     else
-      head :unauthorized
+      puts vote.errors.messages[0]
+      render json: { error: vote.errors.values[0] }, status: 403
     end
   end
 
