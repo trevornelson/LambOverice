@@ -16,9 +16,12 @@ class Question < ActiveRecord::Base
                                                                       {:comments => :user}]
                                                           ).find(question_id) }
 
-  def vote_count
-    votes = self.votes
-    1 + (votes.where(direction: 'Up').count - votes.where(direction: 'Down').count)
+  def incr_vote_count
+    self.vote_count += self.vote_count
+  end
+
+  def decr_vote_count
+    self.vote_count -= self.vote_count
   end
 >>>>>>> Created question#with_all_relations scope and refactored for readability
 end
