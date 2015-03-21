@@ -1,6 +1,5 @@
 $(document).ready(function(){
   $('.vote-buttons').on('click', function(e){
-    // var $target = $(e.target);
     var $data = $(this).data();
     var new_vote = new vote($data['voteableid'], $data['voteabletype'], $data['direction']);
     var vote_count_element = $('#' + $data['voteabletype'] + '-' + $data['voteableid'] + '-' + 'votecount');
@@ -28,7 +27,6 @@ function vote(voteable_id, voteable_type, direction) {
 }
 
 function voteError(element, error) {
-  console.log(error);
   element.popover({title: 'Unable to vote',
                   content: error,
                   placement: 'right'
@@ -36,5 +34,5 @@ function voteError(element, error) {
   element.popover('show');
   setTimeout(function(){
     element.popover('hide');
-  }, 3000);
+  }, 2000);
 }
