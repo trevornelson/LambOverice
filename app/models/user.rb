@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   def comment_karma
     karma_weight = 0.5
-    comments.inject(0, &:+) * karma_weight
+    (comments.inject(0, &:+) * karma_weight).to_i
   end
 
 end

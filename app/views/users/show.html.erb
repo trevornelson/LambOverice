@@ -1,15 +1,14 @@
 <div class="row">
   <div class="col-md-4">
-    <h1><%= @user.username.capitalize %></h1>
+    <h2><%= @user.username.capitalize %></h2>
   </div>
-  <div class="col-md-2">
-    <%= @user.karma %>
+  <div class="col-md-4">
+    <h2><span class="fa fa-star"></span><%= @user.karma %><h2>
   </div>
-  <div class="col-md-2">
-
-  </div>
-  <div class="col-md-2">
-
+  <div class="col-md-4 panel panel-default">
+    <h4>Questions: <%= @user.questions.count %><h4>
+    <h4>Answers: </span><%= @user.answers.count %><h4>
+    <h4>Comments: </span><%= @user.comments.count %><h4>
   </div>
 </div>
 <div class="row">

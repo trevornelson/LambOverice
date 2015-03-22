@@ -9,6 +9,7 @@
       <li><%= link_to 'Categories', categories_path %></li>
 
     <ul class="nav navbar-nav navbar-right">
+      <li><%= render 'layouts/search_bar' %></li>
       <% if curr_user %>
         <li><%= link_to 'My Account', curr_user_path %></li>
         <li><%= link_to 'Logout', curr_session_path, method: :delete %></li>
@@ -16,8 +17,6 @@
         <li><%= link_to 'Login', new_session_path %></li>
         <li><%= link_to 'Sign Up', new_user_path %></li>
       <% end %>
-
-      <li><%= render 'layouts/search_bar' %></li>
     </ul>
 
 
