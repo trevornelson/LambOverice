@@ -25,6 +25,18 @@ class QuestionsController < ApplicationController
     redirect_to curr_user_path
   end
 
+  def recent
+    @questions = Question.all
+    @sort = 'recent'
+    render 'questions/index'
+  end
+
+  def trending
+    @questions = Question.all
+    @sort = 'trending'
+    render 'questions/index'
+  end
+
   private
 
   def question_params

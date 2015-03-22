@@ -1,4 +1,15 @@
 <h1>Top Questions</h1>
+<div class="btn-group" role="group">
+  <%= link_to 'Karma', questions_path, class: 'btn btn-default' %>
+  <%= link_to 'Recent', recent_questions_path, class: 'btn btn-default' %>
+  <%= link_to 'Trending', trending_questions_path, class: 'btn btn-default' %>
+</div>
 <ul class='list-group'>
-  <%= render @questions.order(vote_count: :desc) %>
+  <% if @sort == 'recent' %>
+    <%= render @questions.order(:created_at) %>
+  <% elsif @sort == 'trending' %>
+    <%= render @questions.order(:updated_at) %>
+  <% else %>
+    <%= render @questions.order(vote_count: :desc) %>
+  <% end %>
 </ul>
