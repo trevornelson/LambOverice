@@ -19,4 +19,7 @@ Rails.application.routes.draw do
 
   resources :votes, only: [:create]
 
+  get '/recent/questions', to: 'questions#recent'
+  get '/trending/questions', to: 'questions#trending'
+
 end
