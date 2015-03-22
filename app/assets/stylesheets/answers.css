@@ -1,3 +1,33 @@
-// Place all the styles related to the answers controller here.
+/*// Place all the styles related to the answers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+
+.answer_form{
+  margin-top: 4%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+
+}
+
+#new_comment, .post_comment{
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 5%;
+}
+
+.new_comment {
+  display: none;
+}
+
+
+#answer_content,
+#comment_content {
+  width: 80%;
+  height: 5em;
+  margin:auto;
+}
+
+#comment_content{
+  width: 40%;
+}
