@@ -1,4 +1,7 @@
-<%= form_for [question, answer] do |f| %>
-  <%= f.text_area :content, placeholder: "Answer"%>
-  <%= f.submit%>
-<%end%>
+<div class="answer_form">
+  <h3> Answer </h3>
+  <%= form_for [question, answer] do |f| %>
+    <%= f.text_area :content, placeholder: "Answer"%>
+    <%= f.submit%>
+  <%end%>
+</div>
