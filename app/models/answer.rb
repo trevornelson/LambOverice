@@ -6,9 +6,12 @@ class Answer < ActiveRecord::Base
 
   validates :content, length: {minimum: 10}
 
-  def vote_count
-    votes = self.votes
-    1 + (votes.where(direction: 'Up').count - votes.where(direction: 'Down').count)
+  def incr_vote_count
+    self.increment!(:vote_count)
+  end
+
+  def decr_vote_count
+    self.decrement!(:vote_count)
   end
 
 end

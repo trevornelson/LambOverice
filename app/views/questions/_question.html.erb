@@ -1,4 +1,11 @@
 <li class='list-group-item'>
-  <h3><%= link_to question.title, question %></h3>
-  <strong><%= link_to question.user.username, question.user %></strong>
+  <div class='row'>
+    <div class='col-md-1 list-vote-count'>
+      <%= question.vote_count %>
+    </div>
+    <div class='col-md-11'>
+      <h3><%= link_to question.title, question %></h3>
+      <strong><%= link_to question.user.username, question.user %></strong>
+    </div>
+  </div>
 </li>
