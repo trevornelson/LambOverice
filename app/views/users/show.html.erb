@@ -1,2 +1,46 @@
-<h1>Test Userpage</h1>
-<p>Welcome <%= curr_user.username %></p>
+<div class="row">
+  <div class="col-md-4">
+    <h2><%= @user.username.capitalize %></h2>
+  </div>
+  <div class="col-md-4">
+    <h2><span class="fa fa-star"></span><%= @user.karma %><h2>
+  </div>
+  <div class="col-md-4 panel panel-default">
+    <h4>Questions: <%= @user.questions.count %><h4>
+    <h4>Answers: </span><%= @user.answers.count %><h4>
+    <h4>Comments: </span><%= @user.comments.count %><h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Questions</h3>
+    <ul class="list-group">
+      <% @user.questions.each do |question| %>
+        <li class="list-group-item">
+          <%= link_to question.title, question %>
+          <% if curr_user && @user.id == curr_user.id %>
+            <ul class="list-group">
+              <% question.answers.each do |answer| %>
+                <li class="list-group-item">
+                  <p><%= answer.content %></p>
+                  <%= link_to answer.user.username, answer.user %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-md-6">
+    <h3>Answers</h3>
+    <ul class="list-group">
+      <% @user.answers.each do |answer| %>
+        <li class="list-group-item">
+          <%= link_to answer.question.title, answer %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

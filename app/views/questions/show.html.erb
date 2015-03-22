@@ -15,14 +15,18 @@
     <%= @question.content %>
   </div>
   <%= render @question.comments%>
-  <%= render partial: 'comments/new', locals: {commentable: @question, comment: Comment.new}%>
+  <% if curr_user %>
+    <%= render partial: 'comments/new', locals: {commentable: @question, comment: Comment.new}%>
+  <% end %>
 </div>
 
 <ul class="list-group">
   <%= render @question.answers.order(vote_count: :desc) %>
 </ul>
 
-<div class="answer_form">
-  <%= render partial: 'answers/new', locals: {answer: @answer, question: @question} %>
-</div>
+<% if curr_user %>
+  <div class="answer_form">
+    <%= render partial: 'answers/new', locals: {answer: @answer, question: @question} %>
+  </div>
+<% end %>
 
