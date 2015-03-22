@@ -16,6 +16,14 @@
 
     <%= f.hidden_field :user_id %><br/>
 
-    <%= f.submit "Create" %>
+
+    <button class="btn btn-default" id="preview-button">Preview</button>
+    <%= f.submit "Create", class: "btn btn-default" %>
   <% end %>
+</div>
+
+<div id="question-preview" class="panel panel-default hidden">
+
+
+
 </div>
