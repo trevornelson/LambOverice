@@ -22,7 +22,7 @@ class Question < ActiveRecord::Base
   end
 
   def self.trending
-    all.sort {|a,b| a.past_week_trend <=> b.past_week_trend}
+    all.sort {|a,b| b.past_week_trend <=> a.past_week_trend}
   end
 
   def past_week_trend
