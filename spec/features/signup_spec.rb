@@ -11,7 +11,7 @@ feature "user creates an account" do
       fill_in 'Password', with: "1234"
     end
     click_button "Create Account"
-    expect(page).to have_content 'Test Userpage'
+    expect(page).to have_content 'Logout'
   end
 
 end

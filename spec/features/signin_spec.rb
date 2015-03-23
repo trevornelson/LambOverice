@@ -14,7 +14,7 @@ feature "user login and logout feature" do
       fill_in "Password", with: "1234"
     end
     click_button "Sign In"
-    expect(page).to have_content 'Test Userpage'
+    expect(page).to have_content 'Logout'
   end
 
   scenario "User fails to log in with incorrect credentials" do
