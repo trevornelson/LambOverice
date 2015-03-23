@@ -1,5 +1,5 @@
-#why is last_response is undefined
 require 'rails_helper'
+require 'pp'
 
 describe UsersController do
 
@@ -7,8 +7,8 @@ describe UsersController do
 
   describe "GET /users/new " do
     it "loads user creation form" do
-      get '/users/new'
-      expect(last_response).to be_ok
+      new_user_path
+      expect(response).to be_ok
     end
   end
 

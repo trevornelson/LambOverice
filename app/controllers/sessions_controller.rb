@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to root_url
     else
       session[:message] = "invalid username and/or password"
-      redirect_to new_session
+      redirect_to new_session_path
     end
   end
 
