@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
   end
 
   def recent
-    @questions = Question.all.order(:created_at)
+    @questions = Question.all.order(created_at: :desc)
     render 'questions/index'
   end
 
