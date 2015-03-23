@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.all
+    @questions = Question.all.order(vote_count: :desc)
     if request.xhr?
 
       questions = Question.all.map{|ques| {id: ques.id, category: ques.category.name, title: ques.title, username: ques.user.username} }
@@ -15,32 +15,29 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    @categories = Category.all
   end
 
   def create
-    category = Category.find_or_create_by(name: params[:question][:category_name])
-    params[:question][:category_id] = category.id
     params[:question][:user_id] = session[:user_id]
     Question.create(question_params)
     redirect_to curr_user_path
   end
 
   def recent
-    @questions = Question.all
-    @sort = 'recent'
+    @questions = Question.all.order(:created_at)
     render 'questions/index'
   end
 
   def trending
-    @questions = Question.all
-    @sort = 'trending'
+    @questions = Question.trending
     render 'questions/index'
   end
 
   private
 
   def question_params
-    params.require(:question).permit(:title, :content, :category_name, :category_id, :user_id)
+    params.require(:question).permit(:title, :content, :category_id, :user_id)
   end
 
 end

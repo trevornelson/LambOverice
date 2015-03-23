@@ -5,11 +5,5 @@
   <%= link_to 'Trending', trending_questions_path, class: 'btn btn-default' %>
 </div>
 <ul class='list-group'>
-  <% if @sort == 'recent' %>
-    <%= render @questions.order(:created_at) %>
-  <% elsif @sort == 'trending' %>
-    <%= render @questions.order(:updated_at) %>
-  <% else %>
-    <%= render @questions.order(vote_count: :desc) %>
-  <% end %>
+    <%= render @questions %>
 </ul>

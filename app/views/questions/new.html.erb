@@ -1,18 +1,20 @@
-<div id="question_form">
+<div id="question_form" class="input-group">
   <%= form_for(@question) do |f| %>
 
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %><br/>
 
     <%= f.label :content %>
-    <%= f.text_field :content %>
+    <%= f.text_area :content, class: "form-control" %><br/>
 
-    <%= f.label :category_name %>
-    <%= f.text_field :category_name %>
+    <%= f.label :category_id %><br/>
+    <%= f.select :category_id do %>
+        <% @categories.each do |category| %>
+            <%= content_tag(:option, category.name, value: category.id) %>
+        <% end %>
+    <% end %><br/>
 
-    <%= f.hidden_field :category_id %>
-
-    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :user_id %><br/>
 
     <%= f.submit "Create" %>
   <% end %>
