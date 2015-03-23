@@ -5,7 +5,9 @@
     </div>
 
     <ul class="nav navbar-nav navbar-left">
-      <li><%= link_to 'Questions', questions_path %></li>
+      <% if curr_user %>
+        <li><%= link_to 'Ask', new_question_path %></li>
+      <% end %>
       <li><%= link_to 'Categories', categories_path %></li>
 
     <ul class="nav navbar-nav navbar-right">
@@ -18,8 +20,6 @@
         <li><%= link_to 'Sign Up', new_user_path %></li>
       <% end %>
     </ul>
-
-
 
   </div>
 </nav>
