@@ -2,10 +2,10 @@
   <%= form_for(@question) do |f| %>
 
     <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control" %><br/>
+    <%= f.text_field :title, class: "form-control", id: "question-title" %><br/>
 
     <%= f.label :content %>
-    <%= f.text_area :content, class: "form-control" %><br/>
+    <%= f.text_area :content, class: "form-control", id: "question-content" %><br/>
 
     <%= f.label :category_id %><br/>
     <%= f.select :category_id do %>
@@ -22,7 +22,8 @@
   <% end %>
 </div>
 
-<div id="question-preview" class="panel panel-default hidden">
+<h1 id="preview-title">Question Preview</h1>
+<div id="question-preview" class="panel panel-default">
 
 
 
