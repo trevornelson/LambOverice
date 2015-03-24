@@ -11,4 +11,7 @@ class ApplicationController < ActionController::Base
     user_path(session[:user_id])
   end
 
+  def commentable
+    params[:question_id] ?  Question.find(params[:question_id]) : Answer.find(params[:answer_id])
+  end
 end

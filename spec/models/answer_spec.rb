@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe "Answer" do
+  #Factories, so much...so so much.
+  # Watch your indentation, Trevor
     let(:question_user) { User.create(username: 'test_user', password: '12345', email: 'test_user@test.com') }
     let(:other_user) { User.create(username: 'test_user2', password: '12345', email: 'test_user2@test.com') }
     let(:question) { Question.create(user: question_user, title: 'How do I run tests with Rspec?') }

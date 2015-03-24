@@ -1,3 +1,11 @@
+=begin praising_leo
+Leo, you're amazing.  You're a shiny snowflake in the driven snow.
+
+but
+
+I would like it if you were to put these tests as controller tests.  Rememer feature tests are for testing flows, not single transactions with the controller
+=end
+
 require 'capybara/rspec'
 require 'rails_helper'
 

@@ -3,13 +3,7 @@ class AnswersController < ApplicationController
   def create
     question = Question.find(params[:question_id])
     answer = question.answers.new(content: params[:answer][:content], user_id: session[:user_id])
-    if answer.save
-      # Ajax
-      redirect_to question
-    else
-      #Ajax
-      redirect_to question
-    end
+    redirect_to question
   end
 
   def edit

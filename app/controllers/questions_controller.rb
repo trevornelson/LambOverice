@@ -1,10 +1,16 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.all.order(vote_count: :desc)
-    if request.xhr?
+    # If you're going to branch logic based on Asynch, look at the respond_to
+    #
 
-      questions = Question.all.map{|ques| {id: ques.id, category: ques.category.name, title: ques.title, username: ques.user.username} }
-      render :json => {questions: questions}
+    # BTW: This is crazy inefficient.  You're pulling the entire universe to
+    # map though it, you can use SQL to do this faster.  Probably not a problem
+    # today, but when you get to 50K questions, it will hurt.
+    @questions = Question.all.includes("category").map{|ques| {id: ques.id, category: ques.category.name, title: ques.title, username: ques.user.username} }
+    respond_to do |format|
+      format.html
+      format.json { @questions }
     end
   end
 
