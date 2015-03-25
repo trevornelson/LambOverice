@@ -77,6 +77,12 @@ $(document).ready(function(){
       return (
         <form className="commentForm">
           <input type="text" placeholder="Comment..." ref="content" />
+          <input type="hidden" value="" ref="" />
+          <input type="hidden" value="" ref="" />
+          <input type="hidden" value="" ref="" />
+          <input type="hidden" value="" ref="" />
+          <input type="hidden" value="" ref="" />
+          <input type="hidden" value="" ref="" />
           <input type="submit" />
         </form>
       );
