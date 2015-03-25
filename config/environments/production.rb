@@ -79,9 +79,6 @@ Rails.application.configure do
 
   # Required for deployment with Bootstrap - https://zirosas.wordpress.com/2013/06/02/twitter-bootstrap-for-rails/
   config.assets.compile = true
-end
 
-
-MyApp::Application.configure do
   config.react.variant = :production
 end
