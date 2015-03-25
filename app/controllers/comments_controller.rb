@@ -10,4 +10,10 @@ class CommentsController < ApplicationController
     redirect_to :back
   end
 
+  def index
+    question = Question.find(params[:question_id])
+    comments = question.comments.with_user
+    render json: comments
+  end
+
 end
