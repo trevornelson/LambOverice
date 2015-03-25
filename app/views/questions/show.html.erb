@@ -14,10 +14,8 @@
   <div class="panel-body">
     <%= @question.content %>
   </div>
-  <%= render @question.comments%>
-  <% if curr_user %>
-    <%= render partial: 'comments/new', locals: {commentable: @question, comment: Comment.new}%>
-  <% end %>
+  <ul id="question-comment-box">
+  </ul>
 </div>
 
 <ul class="list-group">
