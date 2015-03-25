@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use twitter bootstrap CSS framework
 gem 'twitter-bootstrap-rails', '~> 3.2.0'
 
+# Reactjs gem
+gem 'react-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
