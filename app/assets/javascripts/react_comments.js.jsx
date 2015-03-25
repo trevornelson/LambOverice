@@ -6,26 +6,35 @@ $(document).ready(function(){
   ];
 
   var CommentBox = React.createClass({
+    loadCommentsFromServer: function() {
+      $.ajax({
+        url: this.props.url,
+        dataType: 'json',
+        type: 'GET',
+        success: function(data) {
+          if (Array.isArray(data)) {
+            this.setState({data: data});
+          } else {
+            this.setState({data: [data]});
+          }
+        }.bind(this),
+        error: function() {
+          console.log("something went wrong");
+        }.bind(this)
+      });
+    },
+    getInitialState: function() {
+      return {data: []};
+    },
+    componentDidMount: function() {
+      this.loadCommentsFromServer();
+    },
     render: function() {
       return (
         <div className="commentbox">
           <h2>Comments</h2>
-          <CommentList data={data} />
-        </div>
-      );
-    }
-  });
-
-  var CommentList = React.createClass({
-    render: function() {
-      var commentNodes = this.props.data.map(function (comment) {
-        return (
-          <Comment user={comment.user} text={comment.text} />
-        );
-      });
-      return (
-        <div className="commentList">
-          {commentNodes}
+          <CommentList data={this.state.data} />
+          <CommentForm />
         </div>
       );
     }
@@ -45,19 +54,38 @@ $(document).ready(function(){
 
   });
 
+  var CommentList = React.createClass({
+    render: function() {
+      console.log(Array.isArray(this.props.data));
+      var commentNodes = this.props.data.map(function(comment) {
+        return (
+          <Comment user={comment['user_id']} text={comment['content']}></Comment>
+        );
+      });
+      return (
+        <div className="commentList">
+          {commentNodes}
+        </div>
+      );
+    }
+  });
+
+
+
   var CommentForm = React.createClass({
     render: function() {
       return (
-        <li class="list-group-item">
-
-        </li>
+        <form className="commentForm">
+          <input type="text" placeholder="Comment..." ref="content" />
+          <input type="submit" />
+        </form>
       );
     }
 
   });
 
   React.render(
-    <CommentBox />,
+    <CommentBox url="/questions/2/comments" />,
     document.getElementById('question-comment-box')
   );
 });

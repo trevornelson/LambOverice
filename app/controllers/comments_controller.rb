@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   def index
     question = Question.find(params[:question_id])
-    comments = question.comments.with_user
+    comments = Comment.find_by(commentable: question)
     render json: comments
   end
 
