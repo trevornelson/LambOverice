@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :questions do
     resources :answers, only: [:new, :create]
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :index]
   end
 
   resources :categories, only: [:index, :show]
