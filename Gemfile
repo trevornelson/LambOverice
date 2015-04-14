@@ -29,6 +29,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use twitter bootstrap CSS framework
 gem 'twitter-bootstrap-rails', '~> 3.2.0'
 
+gem 'faker'
+
+gem 'factory_girl_rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -45,8 +49,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem 'factory_girl_rails'
-  gem 'faker'
   gem 'capybara'
   gem 'rspec-rails'
 end
